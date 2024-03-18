@@ -73,6 +73,12 @@ func TestCalculatePostfixIncorrectOperator(t *testing.T) {
 	assert.EqualError(t, err, expectedError.Error())
 }
 
+func TestCalculatePostfixEmptyInput(t *testing.T) {
+	_, err := CalculatePostfix("")
+	expectedError := errors.New("empty input")
+	assert.EqualError(t, err, expectedError.Error())
+}
+
 func ExampleCalculatePostfix() {
 	res, _ := CalculatePostfix("2 2 + 3 *")
 	fmt.Println(res)

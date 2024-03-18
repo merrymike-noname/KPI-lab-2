@@ -13,6 +13,11 @@ func CalculatePostfix(input string) (string, error) {
 	var err error
 	var result float64
 
+	if input == "" {
+		err = errors.New("empty input")
+		return "", err
+	}
+
 	expressionArr := strings.Split(input, " ")
 	result, err = strconv.ParseFloat(expressionArr[0], 64)
 	if err != nil {
