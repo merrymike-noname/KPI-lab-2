@@ -1,5 +1,4 @@
-// TODO: Переіменуйте на власний модуль.
-module github.com/roman-mazur/architecture-lab-2
+module github.com/merrymike-noname/KPI-lab-2
 
 go 1.22
 
