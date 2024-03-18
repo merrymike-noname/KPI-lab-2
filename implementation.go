@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-// CalculatePostfix variant 1: postfix format expression calculation
+// CalculatePostfix evaluates a mathematical expression given in postfix (also known as Reverse Polish) notation.
 func CalculatePostfix(input string) (string, error) {
 	var err error
 	var result float64
