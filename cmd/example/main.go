@@ -4,24 +4,33 @@ import (
 	"flag"
 	"fmt"
 	lab2 "github.com/merrymike-noname/KPI-lab-2"
+	"io"
+	"os"
 )
 
 var (
 	inputExpression = flag.String("e", "", "Expression to compute")
-	// TODO: Add other flags support for input and output configuration.
+	inputFile = flag.String("f", "", "Path to read from file")
+	outputFile = flag.String("o", "", "Path to write to file")
 )
 
 func main() {
 	flag.Parse()
 
-	// TODO: Change this to accept input from the command line arguments as described in the task and
-	//       output the results using the ComputeHandler instance.
-	//       handler := &lab2.ComputeHandler{
-	//           Input: {construct io.Reader according the command line parameters},
-	//           Output: {construct io.Writer according the command line parameters},
-	//       }
-	//       err := handler.Compute()
+	var reader io.Reader
+	var writer io.Writer 
+	var error error  
 
-	res, _ := lab2.CalculatePostfix("2 10 + 4 *")
-	fmt.Println(res)
+	if error != nil {
+		fmt.Fprintln(os.Stderr, "Error: ", error)
+		os.Exit(1)
+	}
+
+	handler := &lab2.ComputeHandler{Reader: reader,Writer: writer}
+	err := handler.Compute()
+
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "Error: ", err)
+		os.Exit(1)
+	}
 }
