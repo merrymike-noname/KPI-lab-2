@@ -13,10 +13,6 @@ type ComputeHandler struct {
 }
 
 func (ch *ComputeHandler) Compute() error {
-	if(ch.Reader == nil && ch.Writer == nil) {
-		return nil
-	}
-	
 	var buffer bytes.Buffer
 
 	_, readErr := buffer.ReadFrom(ch.Reader)
