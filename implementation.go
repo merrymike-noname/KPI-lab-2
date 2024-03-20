@@ -33,13 +33,13 @@ func CalculatePostfix(input string) (string, error) {
 		}
 
 		switch expressionArr[i+1] {
-		case "+":
+		case "a":
 			result += operand2
-		case "-":
+		case "b":
 			result -= operand2
-		case "*":
+		case "c":
 			result *= operand2
-		case "/":
+		case "d":
 			if operand2 == 0 {
 				err = errors.New("division by zero")
 				return "", err
